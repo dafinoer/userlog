@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header %}
+
+{% endblock  %}
+{% block contents %}
+<div class="container">
+<div class="row">
+    <div class="col s12">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="row">
+                <div class="input-field col s12">
+                    {{form.username.errors}}
+                    {{form.username}}
+                    <label for="{{form.username.id_username}}"> User Name </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                  {{form.email.errors}}
+                    {{form.email}}
+                    <label for="{{form.email.id_email}}"> Email </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                  {{form.first_name.errors}}
+                    {{form.first_name}}
+                    <label for="{{form.username.id_first_name}}"> First Name </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                  {{form.last_name.errors}}
+                    {{form.last_name}}
+                    <label for="{{form.username.id_id_last_name}}"> Last Name </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                  {{form.password1.errors}}
+                    {{form.password1}}
+                    <label for="{{form.username.id_password1}}"> Password1 </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                  {{form.password2.errors}}
+                    {{form.password2}}
+                    <label for="{{form.username.id_password2}}"> Password2 </label>
+                </div>
+            </div>
+            <input type="submit" value="Submit" class="waves-effect waves-light btn">
+        </form>
+    </div>
+</div>
+<!--<form method="POST">
+                {% csrf_token %}
+                 {{ form.as_p }}
+                <input type="submit" value="Submit" class="waves-effect waves-light btn">
+            </form>
+
+</div>
+        -->
+{% endblock %}
