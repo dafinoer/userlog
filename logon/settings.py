@@ -128,5 +128,5 @@ STATICFILES_DIRS = [
 
 
 AUTHENTICATION_BACKENDS = [
-    "accounts.backend.EmailBackend"
+    'accounts.backend.EmailBackend'
 ]

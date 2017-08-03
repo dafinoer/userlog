@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 
 
 import datetime
@@ -25,12 +26,12 @@ def login_user(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
-            # form.save()
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
             user = authenticate(username=email, password=password)
-            login(request, user)
-            return HttpResponseRedirect ("/home/")
+            if user is not None:
+                login(request, user)
+                return HttpResponseRedirect ("/home/")
     else:
         form = LoginForm()
     return render(request, template_name, {'form': form})
